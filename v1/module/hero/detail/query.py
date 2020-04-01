@@ -3,7 +3,7 @@
 """
 @author: delu
 @file: query.py
-@time: 2020-02-01 15:29
+@time: 2020-04-01 14:19
 """
 
 from base.base import Base
@@ -16,5 +16,6 @@ class Controller(Base):
     @tornado.gen.coroutine
     def post(self):
         params = self.params()
-        res = yield self.do_service('champion.service', 'query_champion', params=params)
+        params['shop_id'] = self.user_data['shop_id']
+        res = yield self.do_service('buyer.service', 'update_buyer', params=params)
         self.out(res)

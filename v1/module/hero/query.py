@@ -2,8 +2,8 @@
 
 """
 @author: delu
-@file: create.py
-@time: 2020-02-01 16:38
+@file: query.py
+@time: 2020-04-01 12:56
 """
 
 from base.base import Base
@@ -11,10 +11,9 @@ import tornado.gen
 
 
 class Controller(Base):
-    auth = (None, False)
 
     @tornado.gen.coroutine
-    def post(self):
+    def get(self):
         params = self.params()
-        res = yield self.do_service('user.service', 'login', params=params)
+        res = yield self.do_service('hero.service', 'query_hero_list', params=params)
         self.out(res)

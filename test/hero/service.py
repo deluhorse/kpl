@@ -3,20 +3,19 @@
 """
 @author: delu
 @file: service.py
-@time: 2019-11-21 17:06
+@time: 2020-04-01 18:45
 """
 from test.tester import Tester
 
 
 class MyTest(Tester):
-    def update_price(self):
+    def query_hero_list(self):
         # 退款成功
-        self.path = 'test.service'
-        self.method = 'test2'
-        self.params = {
-        }
+        self.path = 'hero.service'
+        self.method = 'query_hero_list'
+        self.params = {}
 
 
 if __name__ == '__main__':
     refund = MyTest()
-    refund.run('update_price')
+    refund.run('query_hero_list')
